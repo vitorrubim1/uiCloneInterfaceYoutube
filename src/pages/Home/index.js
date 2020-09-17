@@ -26,7 +26,7 @@ import ContentVideos from "../ContentVideos";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: "100vh",
+    height: "100%",
     backgroundColor: theme.palette.background.dark,
   },
   appBar: {

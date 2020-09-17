@@ -1,9 +1,6 @@
 import * as React from "react";
 
 import { Box, Grid, Toolbar, Typography } from "@material-ui/core";
-import {} from "@material-ui/icons";
-
-
 
 const videos = [
   {
@@ -85,6 +82,46 @@ const videos = [
     date: "há 1 semana",
     avatar: "/images/avatar.jpeg",
     thumb: "https://images.unsplash.com/photo-1474265648294-a4236906a526?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1055&q=80",
+  },
+  {
+    id: 4,
+    title:
+      "Jogo de cabra Macho",
+    channel: "Lugin kk",
+    views: "5,6 mi de visualizações",
+    date: "há 1 semana",
+    avatar: "/images/avatar.jpeg",
+    thumb: "https://o4u.com.br/wp-content/uploads/2018/06/mirage.jpg",
+  },
+  {
+    id: 1,
+    title:
+      "Ensino EAD, A possibilidade de retorno de aula presencial?",
+    channel: "InformaçãoTV",
+    views: "11 mi views",
+    date: "há 1 semana",
+    avatar: "/images/avatar.jpeg",
+    thumb: "https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+  },
+  {
+    id: 6,
+    title:
+      "Materias em escolas com incentivo a programação",
+    channel: "Estou sem ideia já :/",
+    views: "233 mil visualizações",
+    date: "há 1 semana",
+    avatar: "/images/avatar.jpeg",
+    thumb: "https://images.unsplash.com/photo-1555436169-20e93ea9a7ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+  },
+  {
+    id: 6,
+    title:
+      "Leia mais irmão, melhor coisa <3",
+    channel: "Estou sem ideia já :/",
+    views: "5 bilhões de visualizações",
+    date: "há 1 semana",
+    avatar: "/images/avatar.jpeg",
+    thumb: "https://images.unsplash.com/photo-1526721940322-10fb6e3ae94a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80",
   },
 ];
 
