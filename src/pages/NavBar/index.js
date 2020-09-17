@@ -7,8 +7,9 @@ import {
   List,
   ListItem,
   ListItemIcon,
-  Drawer,
+  ListSubheader,
   ListItemText,
+  Drawer,
   Divider,
   Typography,
   Toolbar,
@@ -19,8 +20,21 @@ import {
   Subscriptions,
   Whatshot,
   VideoLibrary,
-  History,
   AccountCircle,
+  MusicNoteSharp,
+  SportsSoccerSharp,
+  SportsEsportsSharp,
+  MovieSharp,
+  ReceiptSharp,
+  RssFeedSharp,
+  EmojiObjectsSharp,
+  VideocamSharp,
+  AutorenewSharp,
+  AddCircleOutlineSharp,
+  Settings,
+  Flag,
+  HelpOutlineSharp,
+  SmsFailedSharp,
 } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
@@ -43,6 +57,19 @@ const useStyles = makeStyles((theme) => ({
     color: "#030303",
     fontWeight: 500,
   },
+  subHeader: {
+    textTransform: "uppercase",
+    position: "relative",
+  },
+  textInformation: {
+    fontSize: "0.9rem",
+    cursor: "pointer",
+  },
+  boxInformation: {
+    width: "214px",
+    textAlign: "start",
+    margin: "20px auto",
+  },
 }));
 
 export default function NavBar() {
@@ -59,67 +86,45 @@ export default function NavBar() {
       <Toolbar />
       <Box className={classes.drawerContainer}>
         <List>
-          <ListItem button>
-            <ListItemIcon>
-              <HomeIcon />
-            </ListItemIcon>
-            <ListItemText
-              primary={"Início"}
+          {["Início", "Em alta", "Inscrições"].map((text, index) => (
+            <ListItem
+              button
+              key={text}
               classes={{
-                primary: classes.listItemText, //here I define a class to directly change the style of a component, according to the material ui. (component >> api >> css)
-              }}
-            />
-          </ListItem>
-
-          <ListItem button>
-            <ListItemIcon>
-              <Whatshot />
-            </ListItemIcon>
-            <ListItemText
-              primary={"Em alta"}
-              classes={{
+                //here I define a class to directly change the style of a component, according to the material ui. (component >> api >> css)
                 primary: classes.listItemText,
               }}
-            />
-          </ListItem>
+            >
+              <ListItemIcon>
+                {index === 0 && <HomeIcon />}
+                {index === 1 && <Whatshot />}
+                {index === 2 && <Subscriptions />}
 
-          <ListItem button>
-            <ListItemIcon>
-              <Subscriptions />
-            </ListItemIcon>
-            <ListItemText
-              primary={"Inscrições"}
-              classes={{
-                primary: classes.listItemText,
-              }}
-            />
-          </ListItem>
+                {index === 3 && <VideoLibrary />}
+                {index === 4 && <AutorenewSharp />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItem>
+          ))}
         </List>
+
         <Divider />
 
-        <ListItem button>
-          <ListItemIcon>
-            <VideoLibrary />
-          </ListItemIcon>
-          <ListItemText
-            primary={"Biblioteca"}
+        {["Biblioteca", "Histórico"].map((text, index) => (
+          <ListItem
+            button
+            key={text}
             classes={{
               primary: classes.listItemText,
             }}
-          />
-        </ListItem>
-
-        <ListItem button>
-          <ListItemIcon>
-            <History />
-          </ListItemIcon>
-          <ListItemText
-            primary={"Histórico"}
-            classes={{
-              primary: classes.listItemText,
-            }}
-          />
-        </ListItem>
+          >
+            <ListItemIcon>
+              {index === 0 && <VideoLibrary />}
+              {index === 1 && <AutorenewSharp />}
+            </ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
 
         <Divider />
 
@@ -131,7 +136,7 @@ export default function NavBar() {
             style={{ marginTop: 10, fontWeight: "bold" }}
             color="secondary"
             variant="outlined"
-            startIcon={<AccountCircle />}
+            startIcon={<AccountCircle style={{ fontSize: 30 }} />}
           >
             Fazer Login
           </Button>
@@ -139,42 +144,55 @@ export default function NavBar() {
 
         <Divider />
 
-        <Typography variant="inherit">O melhor do Youtube</Typography>
-        {[
-          "Música",
-          "Esporte",
-          "Jogos",
-          "Filmes",
-          "Notícias",
-          "Ao vivo",
-          "Aprender",
-          "Vídeos do momento",
-          "Vídeo em 360º",
-        ].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index === 0 && <AccountCircle />}
-              {index === 1 && <AccountCircle />}
-              {index === 2 && <AccountCircle />}
-              {index === 3 && <AccountCircle />}
-              {index === 4 && <AccountCircle />}
-              {index === 5 && <AccountCircle />}
-              {index === 6 && <AccountCircle />}
-              {index === 7 && <AccountCircle />}
-              {index === 8 && <AccountCircle />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        <List
+          component="nav"
+          aria-labelledby="nested-list-subheader"
+          subheader={
+            <ListSubheader
+              component="div"
+              id="nested-list-subheader"
+              className={classes.subHeader}
+            >
+              O Melhor do youtube
+            </ListSubheader>
+          }
+        >
+          {[
+            "Música",
+            "Esporte",
+            "Jogos",
+            "Filmes",
+            "Notícias",
+            "Ao vivo",
+            "Aprender",
+            "Vídeos do momento",
+            "Vídeo em 360º",
+          ].map((text, index) => (
+            <ListItem button key={text}>
+              <ListItemIcon>
+                {index === 0 && <MusicNoteSharp />}
+                {index === 1 && <SportsSoccerSharp />}
+                {index === 2 && <SportsEsportsSharp />}
+                {index === 3 && <MovieSharp />}
+                {index === 4 && <ReceiptSharp />}
+                {index === 5 && <RssFeedSharp />}
+                {index === 6 && <EmojiObjectsSharp />}
+                {index === 7 && <VideocamSharp />}
+                {index === 8 && <AutorenewSharp />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItem>
+          ))}
+        </List>
 
         <Divider />
 
         <ListItem button>
           <ListItemIcon>
-            <History />
+            <AddCircleOutlineSharp />
           </ListItemIcon>
           <ListItemText
-            primary={"Histórico"}
+            primary={"Procurar canais"}
             classes={{
               primary: classes.listItemText,
             }}
@@ -183,14 +201,28 @@ export default function NavBar() {
 
         <Divider />
 
-        {["Youtube Premium", "Ao live"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <AccountCircle /> : <VideoLibrary />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        <List
+          component="nav"
+          aria-labelledby="nested-list-subheader"
+          subheader={
+            <ListSubheader
+              component="div"
+              id="nested-list-subheader"
+              className={classes.subHeader}
+            >
+              Mais do Youtube
+            </ListSubheader>
+          }
+        >
+          {["Youtube Premium", "Ao vivo"].map((text, index) => (
+            <ListItem button key={text}>
+              <ListItemIcon>
+                {index % 2 === 0 ? <VideocamSharp /> : <AutorenewSharp />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItem>
+          ))}
+        </List>
 
         <Divider />
 
@@ -199,14 +231,13 @@ export default function NavBar() {
           "Histórico de denúncias",
           "Ajuda",
           "Enviar feedback",
-         
         ].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
-              {index === 0 && <AccountCircle />}
-              {index === 1 && <AccountCircle />}
-              {index === 2 && <AccountCircle />}
-              {index === 3 && <AccountCircle />}
+              {index === 0 && <Settings />}
+              {index === 1 && <Flag />}
+              {index === 2 && <HelpOutlineSharp />}
+              {index === 3 && <SmsFailedSharp />}
             </ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
@@ -214,20 +245,41 @@ export default function NavBar() {
 
         <Divider />
 
-        <Typography>Sobre Imprensa</Typography>
-        <Typography>Direitos autorais</Typography>
-        <Typography>Entre em contato</Typography>
-        <Typography>Criadores de conteúdo</Typography>
-        <Typography>Publicidade de Desenvolvedores</Typography>
-        <br />
-        <Typography>Termos de Privacidade</Typography>
-        <Typography>Política e Segurança</Typography>
-        <Typography>Como funciona o Youtube</Typography>
-        <Typography>Testar os novos recursos</Typography>
-        <br />
-        <br />
-        <Typography>© 2020 Google LLC</Typography>
-
+        <Box className={classes.boxInformation}>
+          <Typography className={classes.textInformation}>
+            Sobre Imprensa
+          </Typography>
+          <Typography className={classes.textInformation}>
+            Direitos autorais
+          </Typography>
+          <Typography className={classes.textInformation}>
+            Entre em contato
+          </Typography>
+          <Typography className={classes.textInformation}>
+            Criadores de conteúdo
+          </Typography>
+          <Typography className={classes.textInformation}>
+            Publicidade de Desenvolvedores
+          </Typography>
+          <br />
+          <Typography className={classes.textInformation}>
+            Termos de Privacidade
+          </Typography>
+          <Typography className={classes.textInformation}>
+            Política e Segurança
+          </Typography>
+          <Typography className={classes.textInformation}>
+            Como funciona o Youtube
+          </Typography>
+          <Typography className={classes.textInformation}>
+            Testar os novos recursos
+          </Typography>
+          <br />
+          <br />
+          <Typography className={classes.textInformation}>
+            © 2020 Google LLC
+          </Typography>
+        </Box>
       </Box>
     </Drawer>
   );

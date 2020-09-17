@@ -50,26 +50,25 @@ export default function Home() {
           <img src={blackLogo} alt="Logo Youtube" className={classes.logo} />
           <Box className={classes.grow} /> {/* to distance icons */}
           <IconButton className={classes.icons}>
-            <VideoCall />
+            <VideoCall style={{ fontSize: 28 }} />
           </IconButton>
           <IconButton className={classes.icons}>
-            <MoreVert />
+            <AppsIcon style={{ fontSize: 28 }}/>
           </IconButton>
           <IconButton className={classes.icons}>
-            <AppsIcon />
+            <MoreVert style={{ fontSize: 28 }} />
           </IconButton>
           <Button
-            size="large"
             color="secondary"
             variant="outlined"
-            startIcon={<AccountCircle />}
+            startIcon={<AccountCircle style={{ fontSize: 30 }}/>}
             style={{ fontWeight: "bold", fontSize: "0.95rem" }}
           >
             Fazer Login
           </Button>
         </Toolbar>
       </AppBar>
-      
+
       <NavBar />
     </Box>
   );
